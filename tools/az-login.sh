@@ -24,6 +24,11 @@ else
   bullet_point="-"
 fi
 
+WSL2=$(uname -r | grep -q WSL2$ ; echo $?)
+if [[ "$WSL2" -eq 0 ]]; then
+  export BROWSER=/usr/bin/wslview
+fi
+
 # Functions
 function select_option {
   # Renders a text based list of options that can be selected by the
